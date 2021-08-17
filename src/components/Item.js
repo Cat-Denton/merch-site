@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { descriptions } from "jest-config";
+// import { descriptions } from "jest-config";
 
 function Item(props){
   return (
@@ -16,8 +16,10 @@ Item.propTypes = {
   brand: PropTypes.string.isRequired,
   model: PropTypes.string.isRequired,
   description: PropTypes.string,
-  stockQuantity: PropTypes.number,
-  price: PropTypes.number
+  stockQuantity: PropTypes.string,
+  price: PropTypes.string
+  // stockQuantity: PropTypes.number,
+  // price: PropTypes.number
 };
 
 export default Item;

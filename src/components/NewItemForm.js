@@ -18,7 +18,11 @@ function NewItemForm(props){
   );
   function handleNewItemFormSubmission(event) {
     event.preventDefault();
-    props.onNewItemCreation({brand: event.target.brand.value, model: event.target.model.value, description: event.target.description.value, price: event.target.price.value, stockQuantity: event.target.stockQuantity.value, id: 4()});
+    console.log(event.target.brand.value)
+    console.log(event.target.model.value)
+    console.log(event.target.description.value)
+    console.log(event.target.price.value)
+    props.onNewItemCreation({brand: event.target.brand.value, model: event.target.model.value, description: event.target.description.value, price: event.target.price.value, id: v4()});
   }
 }
 
