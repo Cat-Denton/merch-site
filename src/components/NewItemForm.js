@@ -18,11 +18,9 @@ function NewItemForm(props){
   );
   function handleNewItemFormSubmission(event) {
     event.preventDefault();
-    console.log(event.target.brand.value)
-    console.log(event.target.model.value)
-    console.log(event.target.description.value)
-    console.log(event.target.price.value)
-    props.onNewItemCreation({brand: event.target.brand.value, model: event.target.model.value, description: event.target.description.value, price: event.target.price.value, id: v4()});
+    const floatPrice = parseFloat(event.target.price.value)
+    const quantityOfItems = parseInt(event.target.stockQuantity.value)
+    props.onNewItemCreation({brand: event.target.brand.value, model: event.target.model.value, description: event.target.description.value, stockQuantity: quantityOfItems, price: floatPrice, id: v4()});
   }
 }
 
