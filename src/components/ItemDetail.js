@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import Item from './Item';
 
 function ItemDetail(props){
-  const { item } = props;
+  const { item, onClickingDelete } = props;
   
   return (
     <React.Fragment>
@@ -13,13 +12,15 @@ function ItemDetail(props){
       <p>price: ${item.price}</p>
       <p>Units in Stock: {item.stockQuantity}</p>
       <button onClick={ props.onClickingEdit}>Edit item details</button>
+      <button onClick={()=> onClickingDelete(item.id)}>Delete this product from stock</button>
     </React.Fragment>
   );
 }
 
 ItemDetail.propTypes ={
   item: PropTypes.object,
-  onClickingEdit: PropTypes.func
+  onClickingEdit: PropTypes.func,
+  onClickingDelete: PropTypes.func
 }
 
 export default ItemDetail;
