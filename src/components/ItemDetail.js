@@ -9,13 +9,23 @@ function ItemDetail(props){
     props.onClickingBuy({brand: item.brand, model: item.model, description: item.description, stockQuantity: newStockQuantity, price: item.price, id: item.id})    
   }
 
+  function handleOutOfStock() {
+    if (item.stockQuantity != 0) {
+      const stock = item.stockQuantity
+      return stock;
+    } else {
+      const stock = "This item is out of stock"
+      return stock;
+    }
+  }
+
   return (
     <React.Fragment>
       <h1>Product Details</h1>
       <h3>{item.brand} - {item.model}</h3>
       <p>{item.description}</p>
       <p>price: ${item.price}</p>
-      <p>Units in Stock: {item.stockQuantity}</p>
+      <p>Units in Stock: {handleOutOfStock()}</p>
       <button onClick={ props.onClickingEdit}>Edit item details</button>
       <button onClick={()=> onClickingDelete(item.id)}>Delete this product from stock</button>
       <button onClick={handleBuyButton}>Buy 1 unit of product</button>
