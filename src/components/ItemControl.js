@@ -65,6 +65,16 @@ class ItemControl extends React.Component {
     })
   }
 
+  handleBuyingItemInList = (itemToBuy) => {
+    const boughtMasterItemList = this.state.masterItemList
+    .filter(item => item.id !==this.state.selectedItem.id)
+    .concat(itemToBuy);
+    this.setState({
+      masterItemList: boughtMasterItemList,
+      editing: false
+    });
+  }
+
   
 
   render() {
@@ -78,7 +88,7 @@ class ItemControl extends React.Component {
       currentlyVisibleState = <NewItemForm onNewItemCreation={this.handleAddingNewItemToList} />
       buttonText = "Return to inventory";
     } else if (this.state.selectedItem != null) {
-      currentlyVisibleState = <ItemDetail item={this.state.selectedItem} onClickingDelete={this.handleDeletingItem} onClickingEdit = {this.handleEditClick} />
+      currentlyVisibleState = <ItemDetail item={this.state.selectedItem} onClickingDelete={this.handleDeletingItem} onClickingEdit = {this.handleEditClick} onClickingBuy = {this.handleBuyingItemInList}/>
       buttonText = "Return to inventory";
     } else {
       currentlyVisibleState = <ItemList itemList={this.state.masterItemList} onItemSelection={this.handleChangingSelectedItem} />
