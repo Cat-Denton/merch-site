@@ -1,3 +1,7 @@
+# Description
+
+A React project that allows a user to add items to an inventory, edit those items entries, and click on a button to "purchase" one unit of the item.
+
 ![Component Diagram](/images/component-diagram.png)
 
 # Getting Started with Create React App
